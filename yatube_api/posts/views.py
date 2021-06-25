@@ -59,6 +59,7 @@ class CommentViewSet(viewsets.ModelViewSet):
         comment = get_object_or_404(self.get_queryset(), pk=pk)
         serializer = self.get_serializer(
             comment, data=request.data, partial=True)
+            # Оставил author == self.request.user, т.к. не проходят тесты.
         if serializer.is_valid() and comment.author == self.request.user:
             serializer.save(author=self.request.user)
             return Response(serializer.data, status=status.HTTP_200_OK)
