@@ -1,8 +1,7 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import status, viewsets, permissions
+from rest_framework import  viewsets, permissions
 from .permissions import IsAuthorOrReadOnly
 
-from rest_framework.response import Response
 from .models import Post
 from .serializers import PostSerializer, CommentSerializer
 
